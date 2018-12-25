@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/ViktorPlohl/angular-base/tree/master.svg?style=svg)](https://circleci.com/gh/ViktorPlohl/angular-base/tree/master)
+
 # archimeon
 
 This project was generated with [ngX-Rocket](https://github.com/ngx-rocket/generator-ngx-rocket/)
