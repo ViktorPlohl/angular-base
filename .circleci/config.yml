@@ -25,26 +25,15 @@ jobs:
           key: v2-dependencies-{{ checksum "package.json" }}
           paths:
             - node_modules
-      # Lint the source code
-      - run:
-          name: Linting
-          command: npm run lint
       # Test the source code
       - run:
           name: Testing
-          command: npm run test
+          command: npm run test:ci
       # Build project with different configuration based on
       # the current branch
       - run:
           name: Building
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "staging" ]; then
-                npm run build-qa
-            elif [ "${CIRCLE_BRANCH}" == "master" ]; then
-                npm run build-prod
-            else
-                npm run build-dev
-            fi
+          command: npm run build
       # Cache the dist folder for the deploy job
       - save_cache:
           key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
