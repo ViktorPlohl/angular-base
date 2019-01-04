@@ -1,34 +1,39 @@
 language: node_js
+
 node_js:
-  - '10.14.2'
+  - 10.14.2
+
 sudo: true
 dist: trusty
-
-before_install:
-  - openssl aes-256-cbc -K $encrypted_fe2bf69914bc_key -iv $encrypted_fe2bf69914bc_iv
-    -in plohl-com-0a5522ff8a0f.json.enc -out plohl-com-0a5522ff8a0f.json -d
 
 branches:
   only:
     - master
 
-before_script:
-  - export CHROME_BIN=/usr/bin/google-chrome
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - sudo apt-get update
-  - sudo apt-get install -y libappindicator1 fonts-liberation
-  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  - sudo dpkg -i google-chrome*.deb
+cache:
+  directories:
+    - node_modules
+
+addons:
+  chrome: stable
 
 script:
-  - ng test:ci
-  - npm run e2e
-  - ng build
+  - npm run test:ci
+  - xvfb-run npm run e2e
+  - npm run build
 
 deploy:
   provider: gae
-  keyfile: plohl-com-0a5522ff8a0f.json
+  keyfile: google-cloud-service-account.json
   project: plohl-com
+  local_dir: dist
+  skip_cleanup: true
   on:
     branch: master
+
+before_install:
+  - echo $super_secret_password | gpg --passphrase-fd 0 google-cloud-service-account.json.gpg
+
+env:
+  global:
+    secure: TtiRBLHabmuc0/vN7Uzk7/KVSTX9fhaE6ZFP8NjPYrlOJCMGT7eUB7EJInOdUaQaKRQzRYGHgMXl3NZCJO9UfQYr83koYUuEcz9Bdp5c6+JSs+BJkn8CqjcZeHNBsOB9Zbv9lDaiPebgxYF6oeGI/YILbRdXATf+0HPwmge3Y0NAPjpkX9ODmD3r9nZBXGNlEXuE/mbSLowXaLEfBQRMIctAQXCUhlzO0oeUVmn+4KBefCmejeYHcMXj+g/raZWJErZu3eK4SPkX/g8WVMWBCcUopaR2N1QyADdjleT+TTi4QbcM39EI/qRHr7DMJJc3o8BaBEZ8qfq6cICkDXxi5K5kZR48BNND3SaDDx8c/SJ2yQQoU7n6YKUsTJK/36p1BbjPpGHJsk316wkfey2XP1rEzD5xam8zHv5yKwWje8AhMSFfOZIBhl2zYxRzXepXN2Ez0lxCcfgZOA7PTuWJpsbq8bLc7da697FoRa2g93zEloyaKFJJ5mkBM4uWq/2EAUmPMCsny3gECmiYgrfM7kSLDFSKKmwbG/sSfWD6U5fVB39h3mdJqf92VK6STMrMzWW6nYttv5aYwqLLHQBAW5jHYcYR5ZYoFUfg8R5DwZxUCMXzkyXiAdTEDprMYrgQs24NfClwDkWsZeKvje0PSXfONghqRMUImCS4aVSidTU=
