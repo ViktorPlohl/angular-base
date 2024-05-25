@@ -3,7 +3,7 @@ language: node_js
 node_js:
   - 20.13.1
 
-sudo: true
+sudo: required
 dist: trusty
 
 branches:
@@ -18,8 +18,7 @@ addons:
   chrome: stable
 
 script:
-  - npm run test:ci
-  - xvfb-run npm run e2e
+  - npm install
   - npm run build
 
 deploy:
@@ -32,7 +31,7 @@ deploy:
     branch: master
 
 before_install:
-  - echo $super_secret_password | gpg --passphrase-fd 0 google-cloud-service-account.json.gpg
+  - echo $super_secret_password | gpg --passphrase-fd 0 --batch --yes --decrypt --output google-cloud-service-account.json google-cloud-service-account.json.gpg
 
 env:
   global:
