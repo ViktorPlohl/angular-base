@@ -1,4 +1,4 @@
-version: 2
+ngversion: 2
 jobs:
   # The build job
   build:
