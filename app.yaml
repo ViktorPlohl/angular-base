@@ -1,4 +1,4 @@
-runtime: python37
+runtime: python39
 handlers:
   - url: /(.*\.(gif|png|jpeg|jpg|css|js|ico|map|woff|woff2|ttf))$
     static_files: dist/\1
