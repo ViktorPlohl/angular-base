@@ -24,7 +24,6 @@ deploy:
   provider: gae
   keyfile: google-cloud-service-account.json
   project: plohl-com
-  edge: true # használja a legújabb dpl v2 verziót
   cleanup: false
   on:
     branch: master
