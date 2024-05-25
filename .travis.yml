@@ -3,7 +3,7 @@ language: node_js
 node_js:
   - 18
 
-dist: bionic
+dist: focal
 
 branches:
   only:
