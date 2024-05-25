@@ -1,9 +1,8 @@
 language: node_js
 
 node_js:
-  - 20.13.1
+  - 16
 
-sudo: required
 dist: bionic
 
 branches:
@@ -25,8 +24,8 @@ deploy:
   provider: gae
   keyfile: google-cloud-service-account.json
   project: plohl-com
-  local_dir: dist
-  skip_cleanup: true
+  edge: true # használja a legújabb dpl v2 verziót
+  cleanup: false
   on:
     branch: master
 
