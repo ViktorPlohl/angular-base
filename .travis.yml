@@ -4,7 +4,7 @@ node_js:
   - 20.13.1
 
 sudo: required
-dist: trusty
+dist: bionic
 
 branches:
   only:
