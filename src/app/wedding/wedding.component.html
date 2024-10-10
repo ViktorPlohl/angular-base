@@ -9,29 +9,158 @@
 <div class="text">
   <p class="text-big">Elérkezett a várva-várt nap,<br>hivatalosan is összekötjük az életünket!</p>
 </div>
+
 <div class="date-container">
   <h1 class="date">
     <span>2024 · 10 · 19</span>
   </h1>
 </div>
+<div class="text">
+  <p class="text-big">Már csak</p>
+</div>
+<!-- Visszaszámláló kezdete -->
+<div class="countdown">
+  <div class="time-unit">
+    <span class="number">{{ days }}</span>
+    <span class="label">Nap</span>
+  </div>
+  <div class="time-unit">
+    <span class="number">{{ hours }}</span>
+    <span class="label">Óra</span>
+  </div>
+  <div class="time-unit">
+    <span class="number">{{ minutes }}</span>
+    <span class="label">Perc</span>
+  </div>
+
+</div>
+<!-- Visszaszámláló vége -->
 
 <figure class="illustration-container">
   <img class="illustration" ngSrc="/images/illustration_3.jpg" height="636" width="1760">
 </figure>
 
 <div class="text">
-  <p class="text-big">Szertartás<br> 15 óra</p>
-  <p><a href="https://visitsubotica.rs/hu/mit-latogassunk-meg/szecesszio/gradska-kuca/" target="_blank">Szabadkai Városháza</a><br> Trg Slobode 1 · 24000<br> Nagyterem</p>
+  <p>
+    <a href="https://visitsubotica.rs/hu/mit-latogassunk-meg/szecesszio/gradska-kuca/" target="_blank">
+      Szabadkai Városháza
+    </a><br>
+    Trg Slobode 1 · 24000<br>
+    Nagyterem
+  </p>
+  <p class="text-big">Bevonulás a terembe<br> 14:45</p>
+  <p class="text-big">Szertartás kezdete<br> 15 óra</p>
+  <p class="text-big">·········································</p>
 </div>
 
 <div class="text">
-  <p class="text-big">aperitif · vacsora · buli<br>16 órától</p>
-  <p><a href="https://palic.rs/en/sta-raditi/salas-vinarija/winery-zvonko-bogdan/" target="_blank">Zvonko Bogdan borászat</a><br> Kanjiški put 45, Palić<br></p>
+  <p class="text-big">aperitif · koktél<br>16 órától</p>
+  <p class="text-big">vacsora<br>19 órától</p>
+  <p>
+    <a href="https://palic.rs/en/sta-raditi/salas-vinarija/winery-zvonko-bogdan/" target="_blank">
+      Zvonko Bogdan borászat
+    </a><br>
+    Kanjiški put 45, Palić<br>
+  </p>
 </div>
+<div class="center">
+  <p class="text-big">Ital lap</p>
+</div>
+<!-- Drinks Menu Start -->
+<div class="drink-menu">
+  <div class="drink-menu-columns">
+    <div class="column">
+      <div class="drink-category">
+        <h2>Víz</h2>
+        <ul>
+          <li>Knjaz Miloš 0,33/0,75</li>
+          <li>Rosa 0,33/0,75</li>
+        </ul>
+      </div>
 
-<div class="text">
-  <p class="optional">A részvételi szándékod és kísérőd jelenlétének megerősítéséhez elegendő,<br> ha visszajelzel nekünk szeptember 30-ig,<br> illetve jelezd különleges étkezési igényeidet is.<br></p>
+      <div class="drink-category">
+        <h2>Kávé</h2>
+        <ul>
+          <li>Lavazza espresso</li>
+        </ul>
+      </div>
+
+      <div class="drink-category">
+        <h2>Tea</h2>
+        <ul>
+          <li>Ronnefeldt</li>
+        </ul>
+      </div>
+
+      <div class="drink-category">
+        <h2>Üdítők</h2>
+        <ul>
+          <li>Coca Cola</li>
+          <li>Coca Cola Zero</li>
+          <li>Fanta</li>
+          <li>Schweppes bitter lemon</li>
+          <li>Schweppes tonic water</li>
+          <li>Next üdítők - Alma / Áfonya / Narancs</li>
+        </ul>
+      </div>
+
+      <div class="drink-category">
+        <h2>Energiaitalok</h2>
+        <ul>
+          <li>Guarana</li>
+          <li>Red Bull</li>
+        </ul>
+      </div>
+
+      <div class="drink-category">
+        <h2>Sör</h2>
+        <ul>
+          <li>Stella Artois</li>
+          <li>Staropramen</li>
+          <li>Jelen pivo</li>
+          <li>Heineken</li>
+        </ul>
+      </div>
+    </div>
+    <div class="column">
+      <div class="drink-category">
+        <h2>Rövid italok</h2>
+        <ul>
+          <li>Baraba pálinka: Barack/Körte/Birs/Szilva</li>
+          <li>Bacardi rum</li>
+          <li>Two Fingers tequila</li>
+          <li>Absolut/Eristoff vodka</li>
+          <li>Dewar's/Johnny Walker Red</li>
+          <li>Jack Daniel's</li>
+          <li>Baileys</li>
+          <li>Sinner gin</li>
+          <li>Bombay Sapphire gin</li>
+          <li>Vinjak Podrum Palić</li>
+          <li>Pelinkovac Podrum Palić</li>
+          <li>Jägermeister</li>
+          <li>Campari</li>
+          <li>Martini Bianco vermut</li>
+          <li>Martell VS</li>
+        </ul>
+      </div>
+
+      <div class="drink-category">
+        <h2>Ház borai</h2>
+        <ul>
+          <li>8 Tamburaša</li>
+          <li>Sauvignon Blanc</li>
+          <li>Pinot Blanc</li>
+          <li>Pinot Grigio</li>
+          <li>Chardonnay</li>
+          <li>Prosecco</li>
+          <li>4 Konja debela</li>
+          <li>Život teče</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
+<!-- Drinks Menu End -->
 
 <figure class="illustration-container">
   <img class="illustration" ngSrc="/images/illustration_4.jpg" height="534" width="1558">
@@ -46,7 +175,7 @@
 </figure>
 
 <div class="text">
-  <p class="text-big">Alig, várjuk, hogy<br> együtt osztozhassunk<br> ezen a napon!</p>
+  <p class="text-big">Alig várjuk, hogy<br>együtt osztozhassunk<br>ezen a napon!</p>
 </div>
 
 <figure class="illustration-container illustration-container-small illustration-container-final">
