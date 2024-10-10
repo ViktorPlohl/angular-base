@@ -1,9 +1,9 @@
 language: node_js
 
 node_js:
-  - 18
+  - node
 
-dist: focal
+dist: jammy
 
 branches:
   only:
@@ -25,16 +25,15 @@ deploy:
   keyfile: google-cloud-service-account.json
   project: plohl-com
   cleanup: false
-  dpl_version: 2
   on:
     branch: master
 
 before_install:
-  - pyenv global 3.8.6
-  - python --version
-  - export CLOUDSDK_PYTHON=$(which python)
   - echo $super_secret_password | gpg --passphrase-fd 0 --batch --yes --decrypt --output google-cloud-service-account.json google-cloud-service-account.json.gpg
 
 env:
   global:
     secure: TtiRBLHabmuc0/vN7Uzk7/KVSTX9fhaE6ZFP8NjPYrlOJCMGT7eUB7EJInOdUaQaKRQzRYGHgMXl3NZCJO9UfQYr83koYUuEcz9Bdp5c6+JSs+BJkn8CqjcZeHNBsOB9Zbv9lDaiPebgxYF6oeGI/YILbRdXATf+0HPwmge3Y0NAPjpkX9ODmD3r9nZBXGNlEXuE/mbSLowXaLEfBQRMIctAQXCUhlzO0oeUVmn+4KBefCmejeYHcMXj+g/raZWJErZu3eK4SPkX/g8WVMWBCcUopaR2N1QyADdjleT+TTi4QbcM39EI/qRHr7DMJJc3o8BaBEZ8qfq6cICkDXxi5K5kZR48BNND3SaDDx8c/SJ2yQQoU7n6YKUsTJK/36p1BbjPpGHJsk316wkfey2XP1rEzD5xam8zHv5yKwWje8AhMSFfOZIBhl2zYxRzXepXN2Ez0lxCcfgZOA7PTuWJpsbq8bLc7da697FoRa2g93zEloyaKFJJ5mkBM4uWq/2EAUmPMCsny3gECmiYgrfM7kSLDFSKKmwbG/sSfWD6U5fVB39h3mdJqf92VK6STMrMzWW6nYttv5aYwqLLHQBAW5jHYcYR5ZYoFUfg8R5DwZxUCMXzkyXiAdTEDprMYrgQs24NfClwDkWsZeKvje0PSXfONghqRMUImCS4aVSidTU=
+
+before_deploy:
+  - gem install dpl -v 2.0.3.beta.4
