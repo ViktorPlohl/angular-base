@@ -207,6 +207,11 @@
 .drink-menu-columns {
   display: flex;
 }
+@media (max-width: 1000px) {
+  .drink-menu-columns {
+    display: block;
+  }
+}
 
 .countdown {
   display: flex;
